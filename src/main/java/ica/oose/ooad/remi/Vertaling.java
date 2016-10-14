@@ -7,10 +7,9 @@ public class Vertaling {
 
     private Map<String,String> dictionary;
 
-    public Vertaling(String taal, String vertaling){
+    protected Vertaling(String taal, String vertaling){
         dictionary = new HashMap<String, String>();
-
-        voegVertalingToe(taal, vertaling);
+        voegVertalingToe(taal,vertaling);
     }
 
     public void voegVertalingToe(String taal, String vertaling) {

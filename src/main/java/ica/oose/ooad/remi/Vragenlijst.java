@@ -1,5 +1,6 @@
 package ica.oose.ooad.remi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Vragenlijst extends Vertaling {
@@ -10,10 +11,18 @@ public class Vragenlijst extends Vertaling {
 
 	private int id;
 
-	private Vraag[] vragen;
+	private List<Vraag> vragen;
 
-	public List<Vraag> getTienVragen() {
-		return null;
+    public Vragenlijst(int id, String taal, String vertaling, int aankoopbedrag) {
+        super(taal, vertaling);
+        vragen = new ArrayList<Vraag>();
+
+        this.id = id;
+        this. aankoopbedrag = aankoopbedrag;
+    }
+
+    public List<Vraag> getTienVragen() {
+        return null;
 	}
 
 }

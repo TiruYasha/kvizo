@@ -6,8 +6,10 @@ public class Vraag extends Vertaling {
 
 	private int punten;
 
-    public Vraag(String taal, String vertaling) {
-        super(taal, vertaling);
+    public Vraag(String taal, String vertaling, int tijd, int punten) {
+        super(taal,vertaling);
+        this.tijd = tijd;
+        this.punten = punten;
     }
 
     public boolean beantwoordVraag(String antwoord) {

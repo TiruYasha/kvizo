@@ -8,7 +8,31 @@ public class VraagUitQuiz {
 
 	private Vraag vraag;
 
-	public void beantwoordVraag(String antwoord) {
+    public VraagUitQuiz(Vraag vraag) {
+        this.vraag = vraag;
+    }
+
+    public boolean isResultaat() {
+        return resultaat;
+    }
+
+    public void setResultaat(boolean resultaat) {
+        this.resultaat = resultaat;
+    }
+
+    public int getTijdInSec() {
+        return tijdInSec;
+    }
+
+    public void setTijdInSec(int tijdInSec) {
+        this.tijdInSec = tijdInSec;
+    }
+
+    public Vraag getVraag() {
+        return vraag;
+    }
+
+    public void beantwoordVraag(String antwoord) {
 
 	}
 
