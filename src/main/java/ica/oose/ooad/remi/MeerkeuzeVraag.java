@@ -4,7 +4,11 @@ public class MeerkeuzeVraag extends Vraag {
 
 	private Positie[] posities;
 
-	public boolean beantwoordVraag(String antwoord) {
+    public MeerkeuzeVraag(String taal, String vertaling) {
+        super(taal, vertaling);
+    }
+
+    public boolean beantwoordVraag(String antwoord) {
 		return false;
 	}
 

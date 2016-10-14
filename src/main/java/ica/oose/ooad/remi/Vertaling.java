@@ -1,13 +1,20 @@
 package ica.oose.ooad.remi;
 
-import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Vertaling {
 
-	private Dictionary<String,String> vertaling;
+    private Map<String,String> dictionary;
 
-	public void voegVertalingToe(String taal, String vertaling) {
+    public Vertaling(String taal, String vertaling){
+        dictionary = new HashMap<String, String>();
 
-	}
+        voegVertalingToe(taal, vertaling);
+    }
+
+    public void voegVertalingToe(String taal, String vertaling) {
+        dictionary.put(taal, vertaling);
+    }
 
 }

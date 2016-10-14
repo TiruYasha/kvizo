@@ -6,7 +6,11 @@ public class Vraag extends Vertaling {
 
 	private int punten;
 
-	public boolean beantwoordVraag(String antwoord) {
+    public Vraag(String taal, String vertaling) {
+        super(taal, vertaling);
+    }
+
+    public boolean beantwoordVraag(String antwoord) {
 		return false;
 	}
 
