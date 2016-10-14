@@ -2,7 +2,7 @@ package ica.oose.ooad.remi;
 
 public class VraagUitQuiz {
 
-	private boolean resultaat;
+	private Boolean resultaat = null;
 
 	private int tijdInSec;
 
@@ -12,32 +12,39 @@ public class VraagUitQuiz {
         this.vraag = vraag;
     }
 
-    public boolean isResultaat() {
+    public Boolean getResultaat() {
         return resultaat;
     }
 
-    public void setResultaat(boolean resultaat) {
-        this.resultaat = resultaat;
+    public boolean beantwoordVraag(String antwoord) {
+        switch (vraag.getType()){
+            case MEERKEUZE:
+                MeerkeuzeVraag meerkeuzeVraag = (MeerkeuzeVraag) vraag;
+                resultaat = meerkeuzeVraag.beantwoordVraag(antwoord);
+                break;
+            case OPEN:
+                OpenVraag openVraag = (OpenVraag) vraag;
+                resultaat = openVraag.beantwoordVraag(antwoord);
+                break;
+        }
+
+        if(resultaat)
+            ConsoleHandler.getInstance().println("Antwoord is goed");
+        else
+            ConsoleHandler.getInstance().println("Antwoord is fout");
+
+        return resultaat;
     }
-
-    public int getTijdInSec() {
-        return tijdInSec;
-    }
-
-    public void setTijdInSec(int tijdInSec) {
-        this.tijdInSec = tijdInSec;
-    }
-
-    public Vraag getVraag() {
-        return vraag;
-    }
-
-    public void beantwoordVraag(String antwoord) {
-
-	}
 
 	public void toonVraag(){
-        ConsoleHandler.getInstance().getInvoer(vraag.getVertaling("NL"));
+        ConsoleHandler.getInstance().println("Vraag: "+ vraag.getVertaling("NL"));
+        if(vraag.getType() == VraagType.MEERKEUZE){
+            MeerkeuzeVraag meerkeuzeVraag = (MeerkeuzeVraag) vraag;
+            meerkeuzeVraag.toonPosities();
+        }
     }
 
+    public int getPunten() {
+        return vraag.getPunten();
+    }
 }

@@ -1,8 +1,5 @@
 package ica.oose.ooad.remi;
 
-import java.io.IOException;
-import java.util.Scanner;
-
 /**
  * Hello world!
  *
@@ -56,7 +53,7 @@ public class App
                 letter ++;
             }
 
-            vraag.voegPositieToe(new Positie(letter, antwoord, false));
+            vraag.voegPositieToe(new Positie(letter, antwoord, true));
         }
 
 

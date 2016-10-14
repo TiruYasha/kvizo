@@ -31,41 +31,9 @@ public class Speler {
         vragenlijsten.add(vragenlijst2);
     }
 
-    public String getGebruikersnaam() {
-        return gebruikersnaam;
-    }
-
-    public String getWachtwoord() {
-        return wachtwoord;
-    }
-
-    public String getGekozenTaal() {
-        return gekozenTaal;
-    }
-
-    public void setGekozenTaal(String gekozenTaal) {
-        this.gekozenTaal = gekozenTaal;
-    }
-
-    public int getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(int saldo) {
-        this.saldo = saldo;
-    }
-
     public List<Vragenlijst> getVragenlijsten() {
         return vragenlijsten;
     }
-
-    public List<Quiz> getQuizes() {
-        return quizes;
-    }
-
-    public void speelIndividueleQuiz() {
-
-	}
 
 	public Vragenlijst getVragenlijst(int id) {
         for(Vragenlijst vragenlijst : vragenlijsten)
@@ -75,16 +43,6 @@ public class Speler {
                 return vragenlijst;
             }
         }
-
         return null;
 	}
-
-	public void voegVragenlijstToe(Vragenlijst vragenlijst){
-        vragenlijsten.add(vragenlijst);
-    }
-
-    public void voegQuizToe(Quiz quiz){
-        quizes.add(quiz);
-    }
-
 }

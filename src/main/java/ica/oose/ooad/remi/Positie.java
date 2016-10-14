@@ -14,5 +14,15 @@ public class Positie {
         this.isGoedAntwoord = isGoedAntwoord;
     }
 
+    public char getPositie() {
+        return positie;
+    }
 
+    public boolean getIsGoedAntwoord() {
+        return isGoedAntwoord;
+    }
+
+    public void toonAntwoord() {
+        ConsoleHandler.getInstance().println(positie + ": " + antwoord.getVertaling("NL"));
+    }
 }

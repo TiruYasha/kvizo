@@ -11,13 +11,4 @@ public class Thema extends Vertaling {
         super(taal,vertaling);
         vragenlijsten = new ArrayList<Vragenlijst>();
     }
-
-    public void voegVragenLijstToe(Vragenlijst vragenlijst){
-        vragenlijsten.add(vragenlijst);
-    }
-
-    public void voegVragenLijstToe(List<Vragenlijst> vragenlijsten){
-        this.vragenlijsten.addAll(vragenlijsten);
-    }
-
 }

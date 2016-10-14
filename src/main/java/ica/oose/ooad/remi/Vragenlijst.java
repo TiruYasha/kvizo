@@ -38,10 +38,6 @@ public class Vragenlijst extends Vertaling {
         return tienvragen;
 	}
 
-    public List<Vraag> getVragen() {
-        return vragen;
-    }
-
     public void voegVraagToe(Vraag vraag) {
         this.vragen.add(vraag);
     }

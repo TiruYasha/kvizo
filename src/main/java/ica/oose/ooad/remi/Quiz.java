@@ -2,54 +2,47 @@ package ica.oose.ooad.remi;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Quiz {
 
-	private int score;
+	private int score = 0;
 
 	private Vragenlijst vragenlijst;
 
 	private List<VraagUitQuiz> vragenUitQuiz;
 
 	private VraagUitQuiz huidigeVraagUitQuiz;
-    private VraagUitQuiz willekeurigeVraag;
 
     public Quiz(Vragenlijst vragenlijst) {
         this.vragenlijst = vragenlijst;
         setTienVragen();
 
-        for(int i = 0; i < vragenUitQuiz.size(); i++)
+        int quizLengte = vragenUitQuiz.size();
+
+        for(int i = 0; i < quizLengte; i++)
         {
             setNieuweVraag();
             getHuidigeVraagUitQuiz().toonVraag();
 
             String antwoord = ConsoleHandler.getInstance().getInvoer("Antwoord:");
+            huidigeVraagUitQuiz.beantwoordVraag(antwoord);
             System.out.println();
-            beantwoordVraag(antwoord);
-
         }
+
+        berekenPunten();
     }
 
-	public void beantwoordVraag(String antwoord) {
-
-	}
+    private void berekenPunten() {
+        for (VraagUitQuiz vraag: vragenUitQuiz) {
+            if(vraag.getResultaat())
+                score += vraag.getPunten();
+        }
+        ConsoleHandler.getInstance().println("Uw score is " + score);
+    }
 
     public VraagUitQuiz getHuidigeVraagUitQuiz()
     {
         return huidigeVraagUitQuiz;
-    }
-
-    public void setHuidigeVraagUitQuiz(VraagUitQuiz huidigeVraagUitQuiz) {
-        this.huidigeVraagUitQuiz = huidigeVraagUitQuiz;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 
     private void setTienVragen() {
@@ -68,10 +61,13 @@ public class Quiz {
 
     public VraagUitQuiz getWillekeurigeVraag() {
         int listLength = vragenUitQuiz.size();
-        int randomVraag = Utility.getRandomWaarde(0, listLength);
 
-        VraagUitQuiz vraag = vragenUitQuiz.get(randomVraag);
-        vragenUitQuiz.remove(randomVraag);
+        VraagUitQuiz vraag;
+        do {
+            int randomVraag = Utility.getRandomWaarde(0, listLength);
+             vraag = vragenUitQuiz.get(randomVraag);
+        }while (vraag.getResultaat() != null);
+
         return vraag;
     }
 }

@@ -31,7 +31,7 @@ public class ConsoleHandler {
     public String getInvoer(String message)
     {
         System.out.print(message + " ");
-        String inputString = scanner.next();
+        String inputString = scanner.nextLine();
 
         return inputString;
     }
