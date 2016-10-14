@@ -6,12 +6,18 @@ package ica.oose.ooad.remi;
  */
 public class App 
 {
+    private Speler speler;
+
     public static void main( String[] args )
     {
+        new App();
+    }
 
+    public App(){
+        init();
+    }
 
-        Speler speler = new Speler(100, "mire", "welkom01", "engels", new Vragenlijst(), new Vragenlijst());
-
-        speler.speelIndividueleQuiz();
+    private void init(){
+        speler = new Speler(100, "mire", "welkom01", "engels", new Vragenlijst(), new Vragenlijst());
     }
 }
