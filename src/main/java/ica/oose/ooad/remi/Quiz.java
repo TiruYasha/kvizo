@@ -22,7 +22,7 @@ public class Quiz {
         for(int i = 0; i < quizLengte; i++)
         {
             setNieuweVraag();
-            getHuidigeVraagUitQuiz().toonVraag();
+            huidigeVraagUitQuiz.toonVraag();
 
             String antwoord = ConsoleHandler.getInstance().getInvoer("Antwoord:");
             huidigeVraagUitQuiz.beantwoordVraag(antwoord);
@@ -56,18 +56,14 @@ public class Quiz {
     }
 
     public void setNieuweVraag() {
-        huidigeVraagUitQuiz = getWillekeurigeVraag();
-    }
-
-    public VraagUitQuiz getWillekeurigeVraag() {
         int listLength = vragenUitQuiz.size();
 
         VraagUitQuiz vraag;
         do {
             int randomVraag = Utility.getRandomWaarde(0, listLength);
-             vraag = vragenUitQuiz.get(randomVraag);
+            vraag = vragenUitQuiz.get(randomVraag);
         }while (vraag.getResultaat() != null);
 
-        return vraag;
+        huidigeVraagUitQuiz = vraag;
     }
 }
