@@ -18,13 +18,25 @@ public class Quiz {
     public Quiz(Vragenlijst vragenlijst) {
         this.vragenlijst = vragenlijst;
         setTienVragen();
+
+        for(int i = 0; i < vragenUitQuiz.size(); i++)
+        {
+            setNieuweVraag();
+            getHuidigeVraagUitQuiz().toonVraag();
+
+            String antwoord = ConsoleHandler.getInstance().getInvoer("Antwoord:");
+            System.out.println();
+            beantwoordVraag(antwoord);
+
+        }
     }
 
 	public void beantwoordVraag(String antwoord) {
 
 	}
 
-    public VraagUitQuiz getHuidigeVraagUitQuiz() {
+    public VraagUitQuiz getHuidigeVraagUitQuiz()
+    {
         return huidigeVraagUitQuiz;
     }
 
@@ -56,19 +68,10 @@ public class Quiz {
 
     public VraagUitQuiz getWillekeurigeVraag() {
         int listLength = vragenUitQuiz.size();
-        int randomVraag = getRandomWaarde(0, listLength);
+        int randomVraag = Utility.getRandomWaarde(0, listLength);
 
         VraagUitQuiz vraag = vragenUitQuiz.get(randomVraag);
         vragenUitQuiz.remove(randomVraag);
         return vraag;
-    }
-
-    public int getRandomWaarde(int min, int max)
-    {
-        Random random = new Random();
-
-        int randomNum = random.nextInt((max - min) + 1) + min;
-
-        return randomNum;
     }
 }

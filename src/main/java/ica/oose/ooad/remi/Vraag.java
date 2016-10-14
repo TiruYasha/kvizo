@@ -12,6 +12,8 @@ public class Vraag extends Vertaling {
         this.punten = punten;
     }
 
+
+
     public boolean beantwoordVraag(String antwoord) {
 		return false;
 	}

@@ -67,8 +67,16 @@ public class Speler {
 
 	}
 
-	public void selecteerVragenlijst(int id) {
+	public Vragenlijst getVragenlijst(int id) {
+        for(Vragenlijst vragenlijst : vragenlijsten)
+        {
+            if(vragenlijst.getId() == id)
+            {
+                return vragenlijst;
+            }
+        }
 
+        return null;
 	}
 
 	public void voegVragenlijstToe(Vragenlijst vragenlijst){

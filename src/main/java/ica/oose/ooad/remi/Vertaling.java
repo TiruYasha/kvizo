@@ -16,4 +16,9 @@ public class Vertaling {
         dictionary.put(taal, vertaling);
     }
 
+    public String getVertaling(String taal)
+	{
+		return dictionary.get(taal);
+	}
+
 }

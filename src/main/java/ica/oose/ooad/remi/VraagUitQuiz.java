@@ -36,4 +36,8 @@ public class VraagUitQuiz {
 
 	}
 
+	public void toonVraag(){
+        ConsoleHandler.getInstance().getInvoer(vraag.getVertaling("NL"));
+    }
+
 }

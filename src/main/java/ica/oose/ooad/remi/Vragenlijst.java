@@ -11,7 +11,11 @@ public class Vragenlijst extends Vertaling {
 
 	private int id;
 
-	private List<Vraag> vragen;
+    public int getId() {
+        return id;
+    }
+
+    private List<Vraag> vragen;
 
     public Vragenlijst(int id, String taal, String vertaling, int aankoopbedrag) {
         super(taal, vertaling);
@@ -22,7 +26,23 @@ public class Vragenlijst extends Vertaling {
     }
 
     public List<Vraag> getTienVragen() {
-        return null;
+
+        List<Vraag> tienvragen = new ArrayList<Vraag>();
+
+        for(int i = 0; i < 10; i++)
+        {
+            int index = Utility.getRandomWaarde(0, vragen.size());
+            tienvragen.add(vragen.get(index));
+        }
+
+        return tienvragen;
 	}
 
+    public List<Vraag> getVragen() {
+        return vragen;
+    }
+
+    public void voegVraagToe(Vraag vraag) {
+        this.vragen.add(vraag);
+    }
 }
