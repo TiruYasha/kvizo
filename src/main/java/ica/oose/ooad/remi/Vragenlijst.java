@@ -28,11 +28,16 @@ public class Vragenlijst extends Vertaling {
     public List<Vraag> getTienVragen() {
 
         List<Vraag> tienvragen = new ArrayList<Vraag>();
-
-        for(int i = 0; i < 10; i++)
+        List<Integer> indexAlreadyUsed = new ArrayList<>();
+        int i = 0;
+        while( i < 10)
         {
             int index = Utility.getRandomWaarde(0, vragen.size());
-            tienvragen.add(vragen.get(index));
+            if(!indexAlreadyUsed.contains(index)) {
+                indexAlreadyUsed.add(index);
+                tienvragen.add(vragen.get(index));
+                i++;
+            }
         }
 
         return tienvragen;

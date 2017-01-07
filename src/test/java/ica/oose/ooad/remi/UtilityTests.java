@@ -5,15 +5,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-/**
- * Created by Michel Douma on 14-10-2016.
- */
 public class UtilityTests {
-
-    @Before
-    public void init(){
-
-    }
 
     @Test
     public void randomWaardeMagGeenOutOfRangeExceptionGooien()
